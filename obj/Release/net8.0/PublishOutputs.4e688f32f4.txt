@@ -1,0 +1,7 @@
+/app/MyWebApp/bin/Release/net8.0/publish/MyWebApp
+/app/MyWebApp/bin/Release/net8.0/publish/appsettings.Development.json
+/app/MyWebApp/bin/Release/net8.0/publish/appsettings.json
+/app/MyWebApp/bin/Release/net8.0/publish/MyWebApp.dll
+/app/MyWebApp/bin/Release/net8.0/publish/MyWebApp.deps.json
+/app/MyWebApp/bin/Release/net8.0/publish/MyWebApp.runtimeconfig.json
+/app/MyWebApp/bin/Release/net8.0/publish/MyWebApp.pdb
