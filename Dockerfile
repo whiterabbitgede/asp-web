@@ -1,7 +1,7 @@
 FROM ubuntu:24.04
 
 # * Client ubuntu 24 noble configuration
-# COPY ubuntu.sources /etc/apt/sources.list.d/ubuntu.sources
+COPY ubuntu.sources /etc/apt/sources.list.d/ubuntu.sources
 
 
 RUN apt update && apt install -y curl wget apt-transport-https ca-certificates dotnet-sdk-10.0 aspnetcore-runtime-10.0
@@ -18,13 +18,16 @@ RUN dotnet new webapp -o MyWebApp && \
 
 WORKDIR /app/MyWebApp
 
-EXPOSE 8080
-# ENV ASPNETCORE_URLS=http://+:8080
+EXPOSE 5000
+ENV ASPNETCORE_URLS="http://0.0.0.0:5000"
 
-CMD dotnet run --urls http://0.0.0.0:8080
+# CMD dotnet run --urls http://0.0.0.0:5000
 
 # or
 
-# ENTRYPOINT ["dotnet", "run", "--urls", "http://0.0.0.0:8080"]
+RUN dotnet publish -c Release -o ./publish
+
+WORKDIR /app/MyWebApp/publish
+ENTRYPOINT ["dotnet", "MyWebApp.dll"]
 
 # docker build -t dotnet:10 .
